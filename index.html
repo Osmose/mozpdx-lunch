@@ -30,11 +30,11 @@
       <h1>MozPDX Lunch Signups</h1>
       <div class="week-container">
         <div class="this week">
-          <h2>This Week</h2>
+          <h2>This Week (<span class="this-week-date"></span>)</h2>
           <iframe></iframe>
         </div>
         <div class="next week">
-          <h2>Next Week</h2>
+          <h2>Next Week (<span class="next-week-date"></span>)</h2>
           <iframe></iframe>
         </div>
       </div>
@@ -44,10 +44,14 @@
       var thisMonday = moment().day(1);
       var frame = document.querySelector('.this.week iframe');
       frame.src = 'https://etherpad.mozilla.org/PDXLunchWeekOf' + thisMonday.format('DDMMMM');
+      var thisWeekDate = document.querySelector('.this-week-date');
+      thisWeekDate.textContent = thisMonday.format('MMMM DD');
 
       var nextMonday = thisMonday.add(1, 'week');
       frame = document.querySelector('.next.week iframe');
       frame.src = 'https://etherpad.mozilla.org/PDXLunchWeekOf' + nextMonday.format('DDMMMM');
+      var nextWeekDate = document.querySelector('.next-week-date');
+      nextWeekDate.textContent = nextMonday.format('MMMM DD');
     </script>
   </body>
 </html>
