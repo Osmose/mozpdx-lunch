@@ -43,15 +43,17 @@
     <script>
       var thisMonday = moment().day(1);
       var frame = document.querySelector('.this.week iframe');
-      frame.src = 'https://etherpad.mozilla.org/PDXLunchWeekOf' + thisMonday.format('DDMMMM');
+      var thisEtherpad = 'https://etherpad.mozilla.org/PDXLunchWeekOf' + thisMonday.format('DDMMMM');
+      frame.src = thisEtherpad;
       var thisWeekDate = document.querySelector('.this-week-date');
-      thisWeekDate.textContent = thisMonday.format('MMMM DD');
+      thisWeekDate.textContent = "<a href="+thisEtherpad+">"+thisMonday.format('MMMM DD')+"</a>";
 
       var nextMonday = thisMonday.add(1, 'week');
       frame = document.querySelector('.next.week iframe');
-      frame.src = 'https://etherpad.mozilla.org/PDXLunchWeekOf' + nextMonday.format('DDMMMM');
+      var nextEtherpad = 'https://etherpad.mozilla.org/PDXLunchWeekOf' + nextMonday.format('DDMMMM');
+      frame.src = nextEtherpad; 
       var nextWeekDate = document.querySelector('.next-week-date');
-      nextWeekDate.textContent = nextMonday.format('MMMM DD');
+      nextWeekDate.textContent = "<a href="+nextEtherpad+">"+nextMonday.format('MMMM DD')+"</a>";
     </script>
   </body>
 </html>
