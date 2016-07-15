@@ -37,6 +37,10 @@
           <h2>Next Week (<span class="next-week-date"></span>)</h2>
           <iframe></iframe>
         </div>
+        <div class="next-next week">
+          <h2>Next Next Week (<span class="next-next-week-date"></span>)</h2>
+          <iframe></iframe>
+        </div>
       </div>
     </div>
     <script src="moment.js"></script>
@@ -54,6 +58,13 @@
       frame.src = nextEtherpad;
       var nextWeekDate = document.querySelector('.next-week-date');
       nextWeekDate.innerHTML = "<a href="+nextEtherpad+">"+nextMonday.format('MMMM DD')+"</a>";
+
+      var nextNextMonday = nextMonday.add(1, 'week');
+      frame = document.querySelector('.next-next.week iframe');
+      var nextNextEtherpad = 'https://public.etherpad-mozilla.org/p/MozPDX_Lunch_' + nextMonday.format('YYYY-MM-DD');
+      frame.src = nextNextEtherpad;
+      var nextNextWeekDate = document.querySelector('.next-next-week-date');
+      nextNextWeekDate.innerHTML = "<a href="+nextNextEtherpad+">"+nextNextMonday.format('MMMM DD')+"</a>";
     </script>
   </body>
 </html>
